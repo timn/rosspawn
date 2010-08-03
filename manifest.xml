@@ -1,0 +1,18 @@
+<package>
+  <description brief="rosspawn">
+    ROSspawn allows to start, stop, and monitor ROS nodes remotely. Opposed
+    to roslaunch it does not read files with configurations to load, but
+    rather it exposes services and topics to inform about available
+    ROS nodes (i.e. binaries in appropriate folders) which can then be
+    started and stopped.
+  </description>
+  <author>Tim Niemueller</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/rosspawn</url>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+
+</package>
+
+
