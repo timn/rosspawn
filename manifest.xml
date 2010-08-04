@@ -12,6 +12,7 @@
   <url>http://ros.org/wiki/rosspawn</url>
   <depend package="roscpp"/>
   <depend package="roslib"/>
+  <depend package="rospack"/>
 
 </package>
 
