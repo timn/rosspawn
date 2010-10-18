@@ -1,0 +1,49 @@
+
+rosspawn: ROS On-the-fly Node Launcher
+======================================
+
+This ROS package provides a node that can start and stop other nodes. It is
+intended to be instructed from another node to launch specific nodes.
+
+rosspawn does not try to be another roslaunch. Rather it is meant to provide
+tools for a different use case. During development, nodes are started and
+stopped frequently while people are working on the node. With roslaunch, this
+often means either starting and stopping larger ensembles, or getting a hold
+on the controlling machine's terminal for a specific node. rosspawn launches
+the nodes by itself, usually instructed by its companion application
+rosspawn_gui from any of the developer's machine. It resembles the way Fawkes
+plugins are loaded and unloaded. While nodes are running, they are monitored
+by rosspawn and status changed are announced. Other developers see if a node
+has been stopped by someone else.
+
+rosspawn is mostly a proof of concept at this stage. It lacks some important
+features in comparison to roslaunch:
+- It makes the assumption of a static configuration, i.e. parameters cannot
+  be set and must be set by other means at least once until the parameter
+  server is restarted
+- It requireds node binaries with user readable names, currently no
+  description can be provided
+- The code is POSIX (and possibly Linux) specific. It most likely will not
+  work on other operating systems.
+- Nodes are currently not automatically respawn if they die in error.
+
+Since the number of binaries grows big very fast, rosspawn allows to create a
+module file which contains the names of the modules which should be announced
+by rosspawn.
+
+This is a proof of concept implementation and probably not useful in its
+current state. Comments and patches welcome.
+
+Requirements
+------------
+The following software packages are needed on your system in order to
+use actionlib_lua. Requirements marked with (*) have specific information
+further down below.
+
+- ROS 1.1			http://www.ros.org
+
+Usage
+-----
+Run bin/rosspawn. Then run rosspawn_gui and click on any node name to get it
+started or stopped. Usually no modifications are necessary to the nodes.
+Nodes which are started without using rosspawn are currently not recognized.

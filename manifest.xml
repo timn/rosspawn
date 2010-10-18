@@ -7,7 +7,7 @@
     started and stopped.
   </description>
   <author>Tim Niemueller</author>
-  <license>BSD</license>
+  <license>GPLv2+</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/rosspawn</url>
   <depend package="roscpp"/>
